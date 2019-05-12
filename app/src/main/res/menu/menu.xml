@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark">
+
+
+    <item android:id="@+id/action_savetexttofile" android:title="Zapisz tekst"/>
+
+    <item android:title="Tryb odczytu" >
+        <menu>
+            <group android:checkableBehavior="single">
+            <item android:id="@+id/action_ocrmethod_line"
+                android:title="Linia" />
+            <item android:id="@+id/action_ocrmethod_block"
+                android:title="Paragraf"
+                android:checked="true"/>
+            <item android:id="@+id/action_ocrmethod_page"
+                android:title="Strona"/>
+            <item android:id="@+id/action_ocrmethod_sparse"
+            android:title="Sparse"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:id="@+id/action_removetempfiles" android:title="Usuń pliki robocze"></item>
+
+
+</menu>

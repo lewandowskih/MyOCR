@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    tools:context="com.example.hubert.myocr.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#ffffff"
+        android:text="TextView"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ocrImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/menuBar"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="toggleOptionsClick"
+            android:text="0-1"
+            android:visibility="gone"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <Button
+            android:id="@+id/ocrButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="onOCRButtonClick"
+            android:text="@string/BUTTON_OCR" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="onTakePicture"
+            android:text="@string/BUTTON_load_photo" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:longClickable="true"
+            android:onClick="toggleMenuClick"
+            android:text="@string/BUTTON_MENU" />
+
+    </LinearLayout>
+
+    <com.isseiaoki.simplecropview.CropImageView
+        android:id="@+id/ocrImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="false"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:scv_frame_color="#2f2f2f"
+        app:scv_frame_stroke_weight="1dp"
+        app:scv_guide_show_mode="show_always"
+        app:scv_guide_stroke_weight="1dp"
+        app:scv_handle_color="#2f2f2f"
+        app:scv_handle_show_mode="show_always"
+        app:scv_handle_size="8dp"
+        app:scv_initial_frame_scale="0.5"
+        app:scv_min_frame_size="1dp"
+        app:scv_touch_padding="8dp" />
+
+    <LinearLayout
+        android:id="@+id/optionsDropDown"
+        android:layout_width="172dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/background_light"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/ocrImageView"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/segmModeTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="segmentationModeClick"
+            android:text="@string/menu_segmentation_mode" />
+
+        <TextView
+            android:id="@+id/optDescr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/BUTTON_binarization_options" />
+
+        <SeekBar
+            android:id="@+id/seekBar4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:max="10" />
+
+        <TextView
+            android:id="@+id/enhType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toggleEnhancementType"
+            android:text="@string/menu_binarization_type_segmented" />
+
+        <Button
+            android:id="@+id/enhanceButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="enhanceButtonClick"
+            android:text="@string/BUTTON_do_enhance" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuDropDown"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/background_light"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/ocrImageView"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onSaveButtonClick"
+            android:text="@string/BUTTON_save_text" />
+
+        <Button
+            android:id="@+id/clrtempButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClearTmpButtonClick"
+            android:text="@string/BUTTON_remove_tmp_files" />
+
+        <Button
+            android:id="@+id/toggleTraineddataPickButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onToggleTrainedDataClick"
+            android:text="@string/BUTTON_data_pick" />
+
+        <Button
+            android:id="@+id/toggleSearchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onToggleSearchClick"
+            android:text="Wyszukaj" />
+
+        <Button
+            android:id="@+id/quitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onQuitButtonClick"
+            android:text="@string/BUTTON_quit_app" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/loadTrainedDataFloating"
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_red_light"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/ocrImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.554">
+
+        <EditText
+            android:id="@+id/editTextDataPath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/background_light"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="/mnt/sdcard/MyOCR/tessdata/pol.traineddata"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ocrImageView"
+            app:layout_constraintVertical_bias="0.515" />
+
+        <Button
+            android:id="@+id/buttonLoadTrainedData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="loadTrainedDataClick"
+            android:text="Button" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/browseInternetFloating"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/background_light"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/ocrImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.554">
+
+        <EditText
+            android:id="@+id/editSearchedString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/background_light"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ocrImageView"
+            app:layout_constraintVertical_bias="0.515" />
+
+        <Button
+            android:id="@+id/buttonSearchGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="loadSearchButtonClick"
+            android:text="Szukaj" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
