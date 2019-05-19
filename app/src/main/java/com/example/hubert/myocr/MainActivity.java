@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String[] segmText = {"Page", "Line", "Block", "Auto"};
     private static int segmIter = 3;
 
-    private static String MYOCR_IMGS = System.getenv("SECONDARY_STORAGE")+ "/MyOCR/imgs";
-    private static String MYOCR_TXTS = System.getenv("SECONDARY_STORAGE")+ "/MyOCR/txts";
+    private static String MYOCR_IMGS = Environment.getExternalStorageDirectory() + "/MyOCR/imgs";
+    private static String MYOCR_TXTS = Environment.getExternalStorageDirectory() + "/MyOCR/txts";
     private static final String SRC_IMAGE_KEY  = "source-image-key";
     private static final String OCR_IMAGE_KEY  = "blackwhite-image-key";
 
