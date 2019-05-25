@@ -26,6 +26,14 @@
     <string name="BUTTON_do_enhance">Wykonaj</string>
     <string name="BUTTON_data_pick">Wybierz słownik</string>
 
+    <string name="BUTTON_MAIN_binarization">0-1</string>
+    <string name="BUTTON_MENU_search">Wyszukaj</string>
+
+    <string name="BUTTON_load_traineddata">Wczytaj</string>
+
+    <string name="BUTTON_save_text_to_file">Zapisz tekst</string>
+<!--    <string name="BUTTON_save_text_to_file">Zapisz tekst</string>-->
+
 
     <!-- Strings related to Settings -->
 

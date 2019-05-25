@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="toggleOptionsClick"
-            android:text="0-1"
+            android:text="@string/BUTTON_MAIN_binarization"
             android:visibility="gone"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
@@ -184,7 +184,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onToggleSearchClick"
-            android:text="Wyszukaj" />
+            android:text="@string/BUTTON_MENU_search" />
 
         <Button
             android:id="@+id/quitButton"
@@ -224,6 +224,7 @@
             android:background="@android:color/background_light"
             android:ems="10"
             android:inputType="textPersonName"
+            android:hint="@null"
             android:text="/mnt/sdcard/MyOCR/tessdata/pol.traineddata"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
@@ -235,7 +236,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="loadTrainedDataClick"
-            android:text="Button" />
+            android:text="@string/BUTTON_load_traineddata" />
 
     </LinearLayout>
 
@@ -269,6 +270,7 @@
             android:background="@android:color/background_light"
             android:ems="10"
             android:inputType="textPersonName"
+            android:hint="@null"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ocrImageView"
@@ -279,7 +281,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="loadSearchButtonClick"
-            android:text="Szukaj" />
+            android:text="@string/BUTTON_MENU_search" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

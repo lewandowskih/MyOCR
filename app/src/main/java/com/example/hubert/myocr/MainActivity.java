@@ -34,6 +34,7 @@ import com.isseiaoki.simplecropview.CropImageView;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 
 import static android.view.View.GONE;
@@ -201,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                 return null;
             }
         }
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         return new File(MYOCR_IMGS + File.separator + "IMG_" + timeStamp + ".jpg");
     }
 
@@ -228,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
                         mDiskLruImageCache.put(SRC_IMAGE_KEY, getBitmapFromUri(takenPhotoUri));
                     }
                     else {
-                        Toast.makeText(getBaseContext(), getResources().getString(R.string.load_photo_fail), Toast.LENGTH_SHORT);
+                        Toast.makeText(getBaseContext(), getResources().getString(R.string.load_photo_fail), Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case PIC_GALLERY:
@@ -238,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                         mDiskLruImageCache.put(SRC_IMAGE_KEY, getBitmapFromUri(uri));
                     }
                     else {
-                        Toast.makeText(getBaseContext(), getResources().getString(R.string.load_photo_fail), Toast.LENGTH_SHORT);
+                        Toast.makeText(getBaseContext(), getResources().getString(R.string.load_photo_fail), Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case PIC_CROP:
@@ -303,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSaveButtonClick(View view){
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String txt = textView.getText().toString();
         File dir = new File(MYOCR_TXTS);
         if (!dir.exists()) {
@@ -412,6 +413,8 @@ public class MainActivity extends AppCompatActivity {
        findViewById(R.id.optionsDropDown).setVisibility(GONE);
        findViewById(R.id.menuDropDown).setVisibility(GONE);
        findViewById(R.id.textView).setVisibility(GONE);
+       findViewById(R.id.loadTrainedDataFloating).setVisibility(GONE);
+       findViewById(R.id.browseInternetFloating).setVisibility(GONE);
     }
 
 

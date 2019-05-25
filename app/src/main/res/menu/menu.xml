@@ -4,7 +4,7 @@
     android:background="@color/colorPrimaryDark">
 
 
-    <item android:id="@+id/action_savetexttofile" android:title="Zapisz tekst"/>
+    <item android:id="@+id/action_savetexttofile" android:title="@string/BUTTON_save_text_to_file"/>
 
     <item android:title="Tryb odczytu" >
         <menu>
